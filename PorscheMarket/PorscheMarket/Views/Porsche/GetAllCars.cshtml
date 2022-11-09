@@ -1,0 +1,100 @@
+﻿@model IEnumerable<PorscheMarket.Domain.ViewModels.PorscheViewModel>
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<div class="card col-md-12">
+    <div class="card-buttons-group">
+        <button class='btn button__send' id='compareBtnId'>Сравнение</button>
+    </div>
+</div>
+<div style="padding: 10px;"></div>
+@if (Model.Count() == 0)
+{
+    <div class="card col-md-12">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="https://pinterest.ru.com/images/2018/10/15/porsche-911-2.jpg"
+                     class="img-fluid rounded-start rounded">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Список машин пуст </h5>
+                    <p class="card-text">
+                        Список пополниться позже, не расстраивайтесь
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="padding: 10px;"></div>
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row" style="width:100%;height:100%;">
+        @foreach (var car in Model)
+        {
+            <div class="row row-cols-1 col-md-4 " style="margin-bottom:10px;">
+                <div class="col" style="padding: 0;">
+                    <div class="card" style="background: url(@car.ImgString) 0 0/100% 100% no-repeat; ">
+                        <div class="card-body">
+                            <h5 class="card-title">@car.Name</h5>
+                            <p class="card-text">@car.Price $</p>
+                        </div>
+                        <div class="card-body buttoncard-body">
+                            <a asp-controller="Porsche" asp-action="GetCarById" asp-route-id="@car.Id" class="card-link"><span class="buttoncard">>  Перейти</span></a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <hr />
+                                <a asp-controller="Porsche" asp-action="DeleteCar" asp-route-id="@car.Id" class="btn buttoncard">Удалить</a>
+                                <a asp-controller="Porsche" asp-action="SaveCar" asp-route-id="@car.Id" class="btn buttoncard">Изменить</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+@section Scripts{
+    <script src="~/js/modalwindow.js"></script>
+    <script>
+        let modal = $('#modal');
+        $('#compareBtnId').on('click', function (){
+           $.ajax({
+               type: 'GET',
+               url : '@Url.Action("GetCompareCar", "Porsche")',
+               success: function (response) {
+                   $('.modal-dialog').addClass("modal-lg");
+                   modal.find(".modal-body").html(response);
+                   modal.modal('show')
+               }
+           });
+       });
+
+       $(".btn-close").on('click',function(){
+            modal.modal('hide');
+       });
+
+    </script>
+}

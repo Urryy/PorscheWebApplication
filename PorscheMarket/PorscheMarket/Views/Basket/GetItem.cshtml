@@ -1,0 +1,38 @@
+﻿@model PorscheMarket.Domain.ViewModels.Order.OrderViewModel;
+<div>
+    <div class="text-center" style="padding:0px 30px;">
+        <h2>Ваш Заказ</h2>
+    </div>
+    <hr />
+    <div class="block-infoorder" style="display:flex;justify-content:space-between;align-items:center">
+        <div class="userinfo" style="margin-right:40px;">
+            <h3>Информация о Пользователе</h3>
+            <p>Имя :@Model.FirstName</p>
+            <p>Фамилия :@Model.LastName</p>
+            <p>Отчество :@Model.MiddleName</p>
+            <p>Адресс :@Model.Address</p>
+            <p>Email :<span class="emailOrder">@Model.email</span></p>
+        </div>
+        <div class="carinfo">
+            <h3>Информация о Машине</h3>
+            <p>Porsche @Model.CarName</p>
+            <p>Модель :@Model.Model</p>
+            <p>Макс.Скорость :@Model.Speed</p>
+            <p>Тип машины :@Model.TypeCar</p>
+        </div>
+    </div>
+</div>
+<script>
+    let emailOr = document.querySelector(".emailOrder");
+    $("#saveBtn").click(function () {
+         $.ajax({
+            type: 'POST',
+            url: '@Url.Action("ConfirmOrder", "Order")',
+             data: { email: emailOr.innerText },
+            success: function (response) {
+                modalOrder.modal('hide');
+            }
+        });
+    });
+</script>
+

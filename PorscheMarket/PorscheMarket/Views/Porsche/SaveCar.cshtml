@@ -1,0 +1,76 @@
+﻿@model PorscheMarket.Domain.ViewModels.PorscheViewModel;
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    var textTitle = @Model?.Id == 0 ? "Изменение данных" : "Добавление данных";
+}
+
+<div style="padding: 10px;"></div>
+<div class="col-md-12">
+    <div class="card-body opacitytext">
+        <div class="card card-outline-secondary" style="background-color: white">
+            <div class="card-header">
+                <h3 class="mb-0 text-center ">@textTitle</h3>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Porsche" asp-action="SaveCar" enctype="multipart/form-data">
+                    <div asp-validation-summary="All" style="font-size:21px;"></div>
+                    <input asp-for="Id" hidden />
+                    <div asp-validation-summary="All" style="font-size:23px; font-family:Impact, serif" class="text-danger text-center"></div>
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Model"></label>
+                        <input asp-for="Model" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MaxSpeed"></label>
+                        <input asp-for="MaxSpeed" class="form-control" type="number">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price"></label>  
+                        <input asp-for="Price" type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BodyType" class="col-form-label"></label>
+                        <select class="form-control" asp-for="BodyType" id="carTypeId"></select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input asp-for="ImgPorsche" class="form-control" type="file">
+                    </div>
+                    <button class="btn btn-lg float-right button__next" type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const select = document.querySelector("#carTypeId");  
+    async function GetTypes() {
+        let response = await fetch("@Url.Action("GetTypesBody","Porsche")");
+        let types = await response.json();
+        let strOption = ``;
+        var arr = { ...types.data };
+        for (let key in arr) {
+            strOption += `<option>${arr[key]}</option>`;
+        }
+        console.log(strOption);
+        select.insertAdjacentHTML("beforeend", strOption);
+    }
+    select.addEventListener("click", GetTypes());
+</script>
+<style>
+    label {
+        color: black;
+        font-weight:500;
+    }
+</style>

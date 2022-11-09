@@ -1,0 +1,38 @@
+﻿.row {
+    margin-right: 0;
+    margin-left: 0;
+    color:white;
+}
+.buttoncard-body{
+    margin-top:140px;
+}
+.card-title {
+    font-size: 25px;
+    font-weight: 700;
+}
+.card-text{
+    font-size:20px;
+    font-weight:500;
+}
+
+.card-buttons-group {
+    text-align: right;
+    padding: 10px;
+}
+.buttoncard{
+    display:inline-block;
+    border:solid 2px white;
+    padding:5px;
+    border-radius:3px;
+    color:white;
+    font-size:20px;
+    font-weight:400;
+}
+.buttoncard:hover {
+    border: solid 2px red;
+    color: red;
+}
+.card {
+    width: 100%;
+    height: 100%;
+}

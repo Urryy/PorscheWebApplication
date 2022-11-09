@@ -1,0 +1,67 @@
+﻿@model PorscheMarket.Domain.ViewModels.PorscheViewModel;
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div style="padding: 10px;"></div>
+<div>
+    <div>
+        <div style="display:flex;">
+            <div>
+                <img src="@Model.ImgString"
+                     class="img-fluid rounded-start rounded" alt="@Model?.Name">
+            </div>
+            <div style="background-color:white;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Porsche @Model?.Name</h5>
+                    <p class="card-text"><b>Описание: </b>@Model?.Description</p>
+                    <p class="card-text"><b>Стоимость: </b>@Model?.Price ₽</p>
+                    <p class="card-text"><b>Тип: </b>@Model?.BodyType</p>
+                    <p class="card-text"><b>Модель: </b>@Model.Model</p>
+                    <p class="card-text"><b>Максимальная скорость: </b>@Model.MaxSpeed km/h</p>
+                </div>
+                <div class="card-body" style="margin-top: 50px;">
+                    <p class="card-text"><small class="text-muted">Дата выпуска - @Model?.CreateDate</small></p>
+                    <div class="card-buttons-group">
+                        <button class='btn button__send createOrderBtnId' id='@Model.Id'>В Корзину</button>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/modalwindow.js"></script>
+    <script>
+        let modalOrder = $('#modal');
+        console.log(modalOrder);
+        $('.createOrderBtnId').on('click', (e) => {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Create","Order")/' + e.target.id,
+                success: function (response) {
+                    console.log(response);
+                    modalOrder.find(".modal-body").html(response);
+                    modalOrder.modal('show');
+                }
+            });
+        });
+
+        $('.btn-close').on('click', () => {
+            modalOrder.modal('hide');
+        });
+
+        $('#saveBtn').on('click', (e) => {
+            let dataOrder = $('#createOrderFormId').serialize();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Create", "Order")',
+                data: dataOrder,
+                success: function (response) {
+                    modalOrder.modal('hide');
+                }
+            })
+        });
+    </script>
+}

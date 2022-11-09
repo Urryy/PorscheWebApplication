@@ -1,0 +1,9 @@
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Domain\bin\Debug\netcoreapp3.1\PorscheMarket.Domain.deps.json
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Domain\bin\Debug\netcoreapp3.1\PorscheMarket.Domain.dll
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Domain\bin\Debug\netcoreapp3.1\PorscheMarket.Domain.pdb
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Domain\obj\Debug\netcoreapp3.1\PorscheMarket.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Domain\obj\Debug\netcoreapp3.1\PorscheMarket.Domain.AssemblyInfoInputs.cache
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Domain\obj\Debug\netcoreapp3.1\PorscheMarket.Domain.AssemblyInfo.cs
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Domain\obj\Debug\netcoreapp3.1\PorscheMarket.Domain.csproj.CoreCompileInputs.cache
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Domain\obj\Debug\netcoreapp3.1\PorscheMarket.Domain.dll
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Domain\obj\Debug\netcoreapp3.1\PorscheMarket.Domain.pdb

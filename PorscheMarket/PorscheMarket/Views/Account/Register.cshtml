@@ -1,0 +1,38 @@
+﻿@model PorscheMarket.Domain.ViewModels.Account.RegisterViewModel
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Регистрация аккаунта";
+}
+<div style="padding: 20px;"></div>
+
+<div class="container py-5">
+    <div>
+        <div>
+            <span class="anchor"></span>
+            <div class="card card-account card-outline-secondary border border-black">
+                <div class="card-header registerblock__title">
+                    <h3 class="mb-0 text-center paragraphHome text-black">Регистрация</h3>
+                </div>
+                <div class="card-body" style="background-color:lightgrey;position:relative;">
+                    <form asp-controller="Account" asp-action="Register">
+                        <div asp-validation-summary="All" style="font-size:21px;" ></div>
+                        <div class="form-group">
+                            <input asp-for="Name" class="form-control textbox-dg font-weight-bold text-center" placeholder="Имя" type="text">
+                        </div>
+                        <div class="form-group">
+                            <input autocomplete="new-password" asp-for="Password" placeholder="Пароль" class="form-control textbox-dg font-weight-bold text-center" type="password">
+                        </div>
+                        <span class="text-black" style="font-size: small; font-family:'Comic Sans MS'">Пароль должен быть длиной больше 6 символов и иметь только латинские символы</span>
+                        <div class="form-group">
+                            <input autocomplete="new-password" asp-for="PasswordConfirm" placeholder="Подтвердите пароль" class="form-control textbox-dg font-weight-bold text-center" type="password">
+                        </div>
+                        <div class="d-grid gap-2 d-md-block float-right"style="position:relative;top:38px;">
+                            <a class="btn button__next" asp-controller="Account" target="_blank" asp-action="Login" >Вход</a>
+                            <button class="btn button__send" type="submit">> Отправить</button>
+                        </div>                             
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

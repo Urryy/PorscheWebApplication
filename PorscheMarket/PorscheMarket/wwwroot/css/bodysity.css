@@ -1,0 +1,39 @@
+﻿.backgrondimage {
+    background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/37127e86994805.5dab0318aec05.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.head {
+    padding: 5px;
+}
+
+.text-center {
+    height: 100%;
+    width: 100%;
+}
+label {
+    font-size: 20px;
+    color: black;
+}
+.opacitytext{
+    opacity:1.0;
+    color:black;
+    font-weight:700;
+    font-size:21px;
+}
+.hide{
+    display:none;
+}
+.show{
+    display:block;
+}
+.navhover{
+    
+}
+.navhover:hover{
+    color:red;
+}
+.textblack{
+    color:black;
+}

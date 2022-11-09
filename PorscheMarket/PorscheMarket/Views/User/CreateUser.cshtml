@@ -1,0 +1,37 @@
+﻿@model PorscheMarket.Domain.ViewModels.UserViewModel;
+@{   
+    ViewBag.Title = "Создание Пользователя";
+} 
+<form asp-action="CreateUser" asp-controller="User" method="post" id="createUserForm">
+    <div asp-validation-summary="All" style="font-size:23px;"></div>
+    <div>
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" type="password" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Role"></label>
+            <select asp-for="Role" class="form-control" id="userTypeRole"></select>
+        </div>
+    </div>
+</form>
+<script>
+    const selectRoleUser = document.querySelector("#userTypeRole");
+    async function GetTypesRole() {
+        let response = await fetch("@Url.Action("GetRoles","User")");      
+        let types = await response.json();
+        console.log(types);
+        let strOption = ``;
+        let arr = { ...types};
+        for (let key in arr) {
+            strOption += `<option>${arr[key]}</option>`;
+        }
+        selectRoleUser.insertAdjacentHTML("beforeend", strOption);
+    }
+    selectRoleUser.addEventListener("click", GetTypesRole());
+</script>
+

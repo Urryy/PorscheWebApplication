@@ -1,0 +1,33 @@
+﻿@model PorscheMarket.Domain.ViewModels.Order.CreateOrderViewModel;
+@{
+    ViewData["Title"] = "Создание Ордера";
+}
+
+<form asp-action="Create" asp-controller="Order" method="post" id="createOrderFormId">
+    <div asp-validation-summary="All" style="font-size:23px;"></div>
+    <h2 class="text-center">Создание заказа</h2>
+    <div>
+        <input asp-for="Login" hidden />
+        <input asp-for="CarId" hidden />
+        <div class="form-group">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="MiddleName"></label>
+            <input asp-for="MiddleName" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Address"></label>
+            <input asp-for="Address" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="email"></label>
+            <input asp-for="email" type="email" class="form-control"/>
+        </div>
+    </div>
+</form>

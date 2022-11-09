@@ -1,0 +1,13 @@
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\bin\Debug\netcoreapp3.1\PorscheMarket.Dal.deps.json
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\bin\Debug\netcoreapp3.1\PorscheMarket.Dal.dll
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\bin\Debug\netcoreapp3.1\PorscheMarket.Dal.pdb
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\bin\Debug\netcoreapp3.1\PorscheMarket.Domain.dll
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\bin\Debug\netcoreapp3.1\PorscheMarket.Domain.pdb
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\obj\Debug\netcoreapp3.1\PorscheMarket.Dal.csproj.AssemblyReference.cache
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\obj\Debug\netcoreapp3.1\PorscheMarket.Dal.GeneratedMSBuildEditorConfig.editorconfig
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\obj\Debug\netcoreapp3.1\PorscheMarket.Dal.AssemblyInfoInputs.cache
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\obj\Debug\netcoreapp3.1\PorscheMarket.Dal.AssemblyInfo.cs
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\obj\Debug\netcoreapp3.1\PorscheMarket.Dal.csproj.CoreCompileInputs.cache
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\obj\Debug\netcoreapp3.1\PorscheMarket.Dal.csproj.CopyComplete
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\obj\Debug\netcoreapp3.1\PorscheMarket.Dal.dll
+E:\PorscheMarket\PorscheMarket\PorscheMarket.Dal\obj\Debug\netcoreapp3.1\PorscheMarket.Dal.pdb
